@@ -1,4 +1,4 @@
-TB_CORRENTISTA ( Correntistas )
+TB_CORRENTISTA ( Correntista )
 
 | Nome da Campo  | Título                 | Tipo      | Mascara            | Tamanho | Permite Nulo |
 | -------------- | ---------------------- | --------- | ------------------ | ------- | ------------ |
