@@ -1,0 +1,12 @@
+TB_TRANSFERENCIA ( Transferência )
+
+| Nome da Campo  | Título                 | Tipo      | Mascara             | Tamanho | Permite Nulo |
+| -------------- | ---------------------- | --------- | ------------------- | ------- | ------------ |
+| TF_ID          | ID da Transferência    | Numérico  |                     | 10      | Não          |
+| TF_DESCRICAO   | Descrição da Transf.   | Caracter  |                     | 150     | Não          |
+| TF_DATA        | Data                   | Data      | dd/MM/yy            | 8       | Não          |
+| TF_CAR_ORIGEM  | Carteira de Origem     | Numérico  |                     | 10      | Não          |
+| TF_CAR_DESTINO | Carteira de Destino    | Numérico  |                     | 10      | Não          |
+| TF_VALOR       | Valor                  | Numérico  | 99.999.999,99       | 10      | Não          |
+| TF_DATA_HORA_INCLUSAO | Data Inclusão   | Data/Hora | dd/MM/yyyy HH:mm:ss | 100     | Sim          |
+| CT_ID          | ID da Conta            | Numérico  |                     | 100     | Não          |
