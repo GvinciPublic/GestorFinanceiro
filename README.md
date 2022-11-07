@@ -1,4 +1,6 @@
 # GestorFinanceiro
 Sistema de gestão financeiro
 
-Olá Dev, Aqui você encontrará todos os scripts que foram utilizados em nosso treinamento.
+Olá Dev, aqui você encontrará todos os scripts utilizados em nosso treinamento.
+
+Fique à vontade para copiar.
