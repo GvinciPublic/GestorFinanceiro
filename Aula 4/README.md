@@ -1,4 +1,4 @@
-Tabelas criadas.
+Tabelas criadas
 
 TB_CORRENTISTA
 
@@ -14,3 +14,4 @@ TB_CORRENTISTA
 | COR_BAIRRO     | Bairro                 | Caracter  |                    | 100     | Sim          |
 | COR_CIDADE     | Cidade                 | Caracter  |                    | 100     | Sim          |
 | COR_EMAIL      | Email                  | Caracter  |                    | 100     | Sim          |
+
