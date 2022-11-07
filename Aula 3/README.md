@@ -1,6 +1,6 @@
 Tabelas criadas.
 
-TB_CARTEIRA
+TB_CARTEIRA ( Carteira )
 
 | Nome da Campo | Título            | Tipo      | Tamanho | Permite Nulo |
 | ------------- | ----------------- | --------- | ------- | ------------ |
@@ -8,14 +8,14 @@ TB_CARTEIRA
 | CAR_NOME      | Nome da Carteira  | Caracter  | 100     | Não          |
 	
 
-TB_CENTRO_DE_CUSTO
+TB_CENTRO_DE_CUSTO ( Centro de Custo )
 
 | Nome da Campo | Título                  | Tipo      | Tamanho | Permite Nulo |
 | ------------- | ----------------------- | --------- | ------- | ------------ |
 | CC_ID         | ID do Centro            | Numérico  | 10      | Não          |
 | CC_NOME       | Nome do centro de custo | Caracter  | 100     | Não          |
 
-TB_GRUPO_CONTA
+TB_GRUPO_CONTA ( Grupo de Conta )
 
 | Nome da Campo | Título                 | Tipo      | Tamanho | Permite Nulo |
 | ------------- | ---------------------- | --------- | ------- | ------------ |
@@ -23,7 +23,7 @@ TB_GRUPO_CONTA
 | GC_NOME       | Nome do grupo de conta | Caracter  | 100     | Não          |
 
 
-TB_CONTA
+TB_CONTA ( Conta )
 
 | Nome da Campo | Título                 | Tipo      | Tamanho | Permite Nulo |
 | ------------- | ---------------------- | --------- | ------- | ------------ |
