@@ -1,4 +1,4 @@
-CONS_LANCAMENTOS ( Consulta de Lançamentos ) View
+CONS_RESUMO_DASHBOARD ( Resumo de valores ) View
 
 | Nome da Campo    | Título                  | Tipo      | Máscara        | Tamanho |
 | --------------   | ----------------------  | --------- | -------------- | ------- |

@@ -1,4 +1,4 @@
-CONS_LANCAMENTOS ( Consulta de Lançamentos ) View
+CONS_LANCAMENTOS ( Lançamentos ) View
 
 | Nome da Campo    | Título                  | Tipo      | Máscara             | Tamanho |
 | --------------   | ----------------------  | --------- | ------------------- | ------- |
