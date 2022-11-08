@@ -19,6 +19,8 @@ Script da Views
     Group By Cons_lancamentos.CAR_ID, Cons_lancamentos.CAR_NOME
 ```
 
+CONS_GRAFICO ( Gráfico ) View
+
 | Nome da Campo    | Título                  | Tipo      | Máscara        | Tamanho |
 | --------------   | ----------------------  | --------- | -------------- | ------- |
 | Mes              | Mês                     | Caracter  |                | 10      |
