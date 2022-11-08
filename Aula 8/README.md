@@ -10,12 +10,13 @@ CONS_LANCAMENTOS ( Lançamento )
 | LANC_VALOR       | Valor                   |
 | LANC_DATA_HORA_INCLUSAO | Data Inclusão    |
 | COR_ID           | ID do Correntista       |
+| COR_NOME         | Nome da Carteira        |
 | CT_ID            | ID da Conta             |
+| CT_NOME          | Nome da conta           |
 | CC_ID            | ID do Centro de custo   |
-| COR_NOME         | ID da Carteira          |
-| CC_NOME          | ID da Carteira          |
+| CC_NOME          | Nome do Centro          |
 | CAR_ID           | ID da Carteira          |
-| CAR_NOME         | ID da Carteira          |
+| CAR_NOME         | Nome da Carteira        |
 | Pago             | Pago?                   | Caracter  |                     | 3       | Não          |
 
 
