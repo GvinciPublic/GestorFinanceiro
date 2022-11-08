@@ -1,7 +1,7 @@
-CONS_LANCAMENTOS ( Consulta de Lançamentos ) Tipo View
+CONS_LANCAMENTOS ( Consulta de Lançamentos ) View
 
-| Nome da Campo    | Título                  | Tipo      | Máscara             | Tamanho | Permite Nulo |
-| --------------   | ----------------------  | --------- | ------------------- | ------- | ------------ |
+| Nome da Campo    | Título                  | Tipo      | Máscara             | Tamanho |
+| --------------   | ----------------------  | --------- | ------------------- | ------- |
 | LANC_ID          | ID de Lançamento        |
 | LANC_DESCRICAO   | Descrição do Lançamento |
 | LANC_DATA_VENC   | Data de Vencimento      |
@@ -17,7 +17,7 @@ CONS_LANCAMENTOS ( Consulta de Lançamentos ) Tipo View
 | CC_NOME          | Nome do Centro          |
 | CAR_ID           | ID da Carteira          |
 | CAR_NOME         | Nome da Carteira        |
-| Pago             | Pago?                   | Caracter  |                     | 3       | Não          |
+| Pago             | Pago?                   | Caracter  |                     | 3       |
 
 
 Script da Views
