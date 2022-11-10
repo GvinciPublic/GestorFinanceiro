@@ -1,5 +1,3 @@
-Tabelas criadas.
-
 TB_CARTEIRA ( Carteira )
 
 | Nome da Campo | Título            | Tipo      | Tamanho | Permite Nulo |
