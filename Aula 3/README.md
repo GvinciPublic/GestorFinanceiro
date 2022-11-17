@@ -2,7 +2,7 @@ TB_CARTEIRA ( Carteira )
 
 | Nome da Campo | Título            | Tipo      | Tamanho | Permite Nulo |
 | ------------- | ----------------- | --------- | ------- | ------------ |
-| CAR_ID        | ID Carteira       | Numérico  | 10      | Não          |
+| CAR_ID        | ID da Carteira       | Numérico  | 10      | Não          |
 | CAR_NOME      | Nome da Carteira  | Caracter  | 100     | Não          |
 	
 
