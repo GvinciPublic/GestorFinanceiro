@@ -25,6 +25,6 @@ TB_CONTA ( Conta )
 
 | Nome da Campo | Título                 | Tipo      | Tamanho | Permite Nulo |
 | ------------- | ---------------------- | --------- | ------- | ------------ |
-| CT_ID         | ID do Grupo            | Numérico  | 10      | Não          |
-| CT_NOME       | Nome do grupo de conta | Caracter  | 100     | Não          |
+| CT_ID         | ID da conta            | Numérico  | 10      | Não          |
+| CT_NOME       | Nome da conta          | Caracter  | 100     | Não          |
 | GC_ID         | ID do Grupo            | Caracter  | 100     | Não          |
