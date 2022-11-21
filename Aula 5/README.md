@@ -11,7 +11,7 @@ TB_TRANSFERENCIA ( Transferência )
 | TF_DATA_HORA_INCLUSAO | Data Inclusão   | Data/Hora | dd/MM/yyyy HH:mm:ss | 100     | Sim          |
 | CT_ID          | ID da Conta            | Numérico  |                     | 100     | Não          |
 | TF_CC_ORIGEM   | Centro de custo de origem  | Numérico  |                     | 100     | Não          |
-| CT_ID          | Centro de custo de destino | Numérico  |                     | 100     | Não          |
+| TF_CC_DESTINO  | Centro de custo de destino | Numérico  |                     | 100     | Não          |
 
 TB_CONFIGURACOES ( Configurações ) tipo Parâmetros
 
