@@ -1,4 +1,4 @@
-Parâmetros para a execusão do Processo Pré-definido
+Parâmetros para a execução do Processo Pré-definido
 
 | Nome do Parametro | Tipo      |
 | --------------    | --------- |
