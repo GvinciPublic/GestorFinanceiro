@@ -1,26 +1,92 @@
-CONS_RESUMO_DASHBOARD ( Resumo de valores ) View
+CONS_LANCAMENTOS ( Lançamentos ) View
 
-| Nome da Campo    | Título                  | Tipo      | Máscara        | Tamanho |
-| --------------   | ----------------------  | --------- | -------------- | ------- |
-| Apagar           | A pagar                 | Numérico  | 99.999.999,99  | 10      |
-| AReceber         | A receber               | Numérico  | 99.999.999,99  | 10      |
-| Receita          | Receita                 | Numérico  | 99.999.999,99  | 10      |
-| Despesa          | Despesa                 | Numérico  | 99.999.999,99  | 10      |
-| Total            | Total                   | Numérico  | 99.999.999,99  | 10      |
-| Transferencia    | Transferencia           | Numérico  | 99.999.999,99  | 10      |
+| Nome da Campo    | Título                  | Tipo      | Máscara             | Tamanho |
+| --------------   | ----------------------  | --------- | ------------------- | ------- |
+| LANC_ID          | ID de Lançamento        |
+| LANC_DESCRICAO   | Descrição do Lançamento |
+| LANC_DATA_VENC   | Data de Vencimento      |
+| LANC_DATA_PAG    | Data de Pagamento       |
+| LANC_TIPO        | Tipo de Lançamento      |
+| LANC_VALOR       | Valor                   |
+| LANC_DATA_HORA_INCLUSAO | Data Inclusão    |
+| COR_ID           | ID do Correntista       |
+| COR_NOME         | Nome da Carteira        |
+| CT_ID            | ID da Conta             |
+| CT_NOME          | Nome da conta           |
+| CC_ID            | ID do Centro de custo   |
+| CC_NOME          | Nome do Centro          |
+| CAR_ID           | ID da Carteira          |
+| CAR_NOME         | Nome da Carteira        |
+| Pago             | Pago?                   | Caracter  |                     | 3       |
 
 
 Script da Views
 
 ```sql
-    Select 
-        Sum(Case When Cons_lancamentos.PAGO = 'Não' And Cons_lancamentos.LANC_TIPO ='Despesa' Then Cons_lancamentos.LANC_VALOR Else 0 End) As APagar,
-        Sum(Case When Cons_lancamentos.PAGO = 'Não' And Cons_lancamentos.LANC_TIPO = 'Receita' Then Cons_lancamentos.LANC_VALOR Else 0 End) As AReceber,
-        Sum(Case When Cons_lancamentos.LANC_TIPO = 'Receita' And Cons_lancamentos.PAGO = 'Sim' Then Cons_lancamentos.LANC_VALOR Else 0 End) As Receita,
-        Sum(Case When Cons_lancamentos.LANC_TIPO = 'Despesa' And Cons_lancamentos.PAGO = 'Sim' Then Cons_lancamentos.LANC_VALOR Else 0 End) As Despesa,
-        Sum(Case When Cons_lancamentos.LANC_TIPO = 'Transferência' And Cons_lancamentos.PAGO = 'Sim' Then Cons_lancamentos.LANC_VALOR Else 0 End) As Transferencia,
-        Sum(Case When Cons_lancamentos.PAGO = 'Sim' Then Cons_lancamentos.LANC_VALOR Else 0 End) As Total
-    From Cons_lancamentos
-    Cross Join TB_CONFIGURACOES
-    Where Cons_lancamentos.CAR_ID = IsNull(TB_CONFIGURACOES.CONFIG_CARTEIRA_PADRAO, Cons_lancamentos.CAR_ID)
+    Select TB_LANCAMENTO.LANC_ID,
+        TB_LANCAMENTO.LANC_DESCRICAO,
+        TB_LANCAMENTO.LANC_DATA_VENC,
+        TB_LANCAMENTO.LANC_DATA_PAG,
+        TB_LANCAMENTO.LANC_TIPO,
+        Case When TB_LANCAMENTO.LANC_PAGO = 0 Then 'Não'  Else 'Sim' End As PAGO,
+        TB_LANCAMENTO.LANC_DATA_HORA_INCLUSAO,
+        TB_CARTEIRA.CAR_ID,
+        TB_CARTEIRA.CAR_NOME,
+        TB_CORRENTISTA.COR_ID,
+        TB_CORRENTISTA.COR_NOME,
+        TB_CONTA.CT_ID,
+        TB_CONTA.CT_NOME,
+        Case When TB_LANCAMENTO.LANC_TIPO = 'Despesa' Then (TB_LANCAMENTO.LANC_VALOR * -1)  Else TB_LANCAMENTO.LANC_VALOR
+        End As LANC_VALOR,
+        TB_LANCAMENTO.CC_ID,
+        TB_CENTRO_DE_CUSTO.CC_NOME
+    From TB_LANCAMENTO
+    Inner Join TB_CARTEIRA On TB_CARTEIRA.CAR_ID = TB_LANCAMENTO.CAR_ID
+    Inner Join TB_CORRENTISTA On TB_CORRENTISTA.COR_ID = TB_LANCAMENTO.COR_ID
+    Inner Join TB_CONTA On TB_CONTA.CT_ID = TB_LANCAMENTO.CT_ID
+    Inner Join TB_CENTRO_DE_CUSTO On TB_LANCAMENTO.CC_ID = TB_CENTRO_DE_CUSTO.CC_ID
+
+Union All
+
+    Select TB_TRANSFERENCIA.TF_ID,
+        TB_TRANSFERENCIA.TF_DESCRICAO,
+        TB_TRANSFERENCIA.TF_DATA As LANC_DATA_VENC,
+        TB_TRANSFERENCIA.TF_DATA As LANC_DATA_PAG,
+        'Transferência' As TIPO,
+        'Sim' As PAGO,
+        TB_TRANSFERENCIA.TF_DATA_HORA_INCLUSAO,
+        TB_TRANSFERENCIA.TF_CAR_DESTINO,
+        TB_CARTEIRA.CAR_NOME,
+        0 As COR_ID,
+        'Transferência' As CORNOME,
+        TB_CONTA.CT_ID,
+        TB_CONTA.CT_NOME,
+        TB_TRANSFERENCIA.TF_VALOR,
+        0 As CC_ID,
+        '' As CC_NOME
+    From TB_TRANSFERENCIA
+    Inner Join TB_CONTA On TB_CONTA.CT_ID = TB_TRANSFERENCIA.CT_ID
+    Inner Join TB_CARTEIRA On TB_CARTEIRA.CAR_ID = TB_TRANSFERENCIA.TF_CAR_DESTINO
+
+Union All
+
+    Select TB_TRANSFERENCIA.TF_ID,
+        TB_TRANSFERENCIA.TF_DESCRICAO,
+        TB_TRANSFERENCIA.TF_DATA As LANC_DATA_VENC,
+        TB_TRANSFERENCIA.TF_DATA As LANC_DATA_PAG,
+        'Transferência' As TIPO,
+        'Sim' As PAGO,
+        TB_TRANSFERENCIA.TF_DATA_HORA_INCLUSAO,
+        TB_TRANSFERENCIA.TF_CAR_ORIGEM,
+        TB_CARTEIRA.CAR_NOME,
+        0 As COR_ID,
+        'Transferência' As CORNOME,
+        TB_CONTA.CT_ID,
+        TB_CONTA.CT_NOME,
+        (TB_TRANSFERENCIA.TF_VALOR * -1),
+        0 As CC_ID,
+        '' As CC_NOME
+    From TB_TRANSFERENCIA
+    Left Join TB_CONTA On TB_CONTA.CT_ID = TB_TRANSFERENCIA.CT_ID
+    Inner Join TB_CARTEIRA On TB_CARTEIRA.CAR_ID = TB_TRANSFERENCIA.TF_CAR_ORIGEM
 ```

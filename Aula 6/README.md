@@ -1,16 +1,14 @@
-TB_LANCAMENTO ( Lançamento )
+TB_TRANSFERENCIA ( Transferência )
 
-| Nome da Campo    | Título                  | Tipo      | Máscara             | Tamanho | Permite Nulo |
-| --------------   | ----------------------  | --------- | ------------------- | ------- | ------------ |
-| LANC_ID          | ID de Lançamento        | Numérico  |                     | 10      | Não          |
-| LANC_DESCRICAO   | Descrição do Lançamento | Caracter  |                     | 150     | Não          |
-| LANC_DATA_VENC   | Data de Vencimento      | Data      | dd/MM/yy            | 8       | Não          |
-| LANC_TIPO        | Tipo de Lançamento      | Caracter  |                     | 50      | Não          |
-| LANC_VALOR       | Valor                   | Numérico  | 99.999.999,99       | 10      | Não          |
-| LANC_PAGO        | Pago?                   | Lógico    |                     | 10      | Não          |
-| LANC_DATA_HORA_INCLUSAO | Data Inclusão    | Data/Hora | dd/MM/yyyy HH:mm:ss | 19      | Sim          |
-| COR_ID           | ID do Correntista       | Numérico  |                     | 10      | Não          |
-| CT_ID            | ID da Conta             | Numérico  |                     | 10      | Não          |
-| CAR_ID           | ID da Carteira          | Numérico  |                     | 10      | Não          |
-| CC_ID            | ID do Centro de custo   | Numérico  |                     | 10      | Não          |
-| LANC_DATA_PAG    | Data de Pagamento       | Data      | dd/MM/yy            | 8       | Não          |
+| Nome da Campo  | Título                 | Tipo      | Máscara             | Tamanho | Permite Nulo |
+| -------------- | ---------------------- | --------- | ------------------- | ------- | ------------ |
+| TF_ID          | ID da Transferência    | Numérico  |                     | 10      | Não          |
+| TF_DESCRICAO   | Descrição da Transf.   | Caracter  |                     | 150     | Não          |
+| TF_DATA        | Data                   | Data      | dd/MM/yy            | 8       | Não          |
+| TF_CAR_ORIGEM  | Carteira de Origem     | Numérico  |                     | 10      | Não          |
+| TF_CAR_DESTINO | Carteira de Destino    | Numérico  |                     | 10      | Não          |
+| TF_VALOR       | Valor                  | Numérico  | 99.999.999,99       | 10      | Não          |
+| TF_DATA_HORA_INCLUSAO | Data Inclusão   | Data/Hora | dd/MM/yyyy HH:mm:ss | 100     | Sim          |
+| CT_ID          | ID da Conta            | Numérico  |                     | 100     | Não          |
+| TF_CC_ORIGEM   | Centro de custo de origem  | Numérico  |                     | 100     | Não          |
+| TF_CC_DESTINO  | Centro de custo de destino | Numérico  |                     | 100     | Não          |
